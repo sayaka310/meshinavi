@@ -13,9 +13,11 @@ class RestaurantController extends Controller
         return view('restaurants.index', compact('restaurants'));
     }
 
-    public function show(Restaurant $restaurant)
+    public function show($id)
     {
-        return view('restaurants.show', compact('restaurant'));
+        $restaurant = Restaurant::find($id);
+        $zoom = 15;
+        return view('restaurants.show', compact('restaurant', 'zoom'));
     }
 }
 //     /**
